@@ -1,7 +1,7 @@
-
+#include <iostream>
 #include "Wheel.h"
 #include "Player.h"
-#include <iostream>
+
 
 int main() {
     int val;
@@ -29,19 +29,18 @@ int main() {
     Player House = Player(val);
 
     //if the player wants to keep playing and they still have money left, keep playing
-    while (keepPlaying || moneyLeft) {
+    while (keepPlaying && moneyLeft) {
         int bet;
         int playerResult;
         int wagerChoice;
         char continueChoice;
-        int houseResult1;
-        int houseResult2;
+        int houseResult1, houseResult2;
         
         //prompt the user for their bet
         std::cout << "\nWhat is your minimum bet?: ";
         std::cin >> bet;
         //if they bet if over their amount of money or under the minimum, prompt again
-        while (bet > p1.money || bet < .02) {
+        while (bet > p1.get_money() || bet < .02) {
             std::cout << "\nInvalid bet. Enter a new bet: ";
             std::cin >> bet;
         }
@@ -52,7 +51,7 @@ int main() {
         std::cout << "\nYour spin result is " << playerResult;
 
         //prompt the user to make a choice on their wager
-        std::cout << "\nPress 1 to double your wager.\nPress 2 to halve your wager.\nPress 3 to keep your wager.";
+        std::cout << "\nPress 1 to double your wager.\nPress 2 to halve your wager.\nPress 3 to keep your wager.\n";
         std::cin >> wagerChoice;
         //if they enter an invalid choice, prompt again
         while (wagerChoice < 1 || wagerChoice > 3) {
@@ -67,8 +66,8 @@ int main() {
             bet = bet * 2;
             //if they bet is more than half of the players total money,
             //change the bet to the value of the players money
-            if (bet > p1.money) {
-                bet = p1.money;
+            if (bet > p1.get_money()) {
+                bet = p1.get_money();
             }
             
             //get the house's results
@@ -79,12 +78,12 @@ int main() {
             if (houseResult1 >= playerResult || houseResult2 >= playerResult) {
                 //player lost
                 std::cout << "\nYou lost. House Result: " << houseResult1 << " and " << houseResult2;
-                p1.money = p1.money - bet;
+                p1.set_money(p1.get_money() - bet);
             }
             else {
                 //player won
                 std::cout << "\nYou won. House Results: " << houseResult1 << " and " << houseResult2;
-                p1.money = p1.money + bet;
+                p1.set_money(p1.get_money() + bet);
             }
         }
         //halve
@@ -100,7 +99,7 @@ int main() {
             if (houseResult1 >= playerResult && houseResult2 >= playerResult) {
                 //player lost
                 std::cout << "\nYou lost. House Result: " << houseResult1 << " and " << houseResult2;
-                p1.money = p1.money - bet;
+                p1.set_money(p1.get_money() - bet);
             }
             else {
                 //player won
@@ -116,17 +115,17 @@ int main() {
             if (houseResult1 >= playerResult) {
                 //player lost
                 std::cout << "\nYou lost. House Result: " << houseResult1;
-                p1.money = p1.money - bet;
+                p1.set_money(p1.get_money() - bet);
             }
             else {
                 //player won
                 std::cout << "\nYou won. House Result: " << houseResult1;
-                p1.money = p1.money + bet;
+                p1.set_money(p1.get_money() + bet);
             }
         }
 
         //print out the players money total
-        std::cout << "\nYour money total is: " << p1.money;
+        std::cout << "\nYour money total is: " << p1.get_money();
 
         //ask if they want to keep playing
         std::cout << "\nDo you want to keep playing? (Y/N): ";

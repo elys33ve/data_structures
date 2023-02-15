@@ -1,18 +1,4 @@
-#pragma once
-
-class Player : public Wheel {
-    public:
-        double money; //Players money
-        Player();
-        Player(int Values);
-        Player(int Values, double Money);
-};
-
-
-
-
-
-/*#ifndef PLAYER_H
+#ifndef PLAYER_H
 #define PLAYER_H
 
 class Player : public Wheel {
@@ -30,4 +16,4 @@ class Player : public Wheel {
 
 };
 
-#endif*/
+#endif
