@@ -1,0 +1,105 @@
+Title: Moby Dick
+Author Full Name: Herman Melville
+Author First Name: Herman
+Author Last Name: Melville
+Word Count: 202
+Line Count: 17
+
+Moby Dick Letter Frequency:
+a: 6.43%
+b: 1.02%
+c: 2.03%
+d: 2.37%
+e: 12.19%
+f: 2.48%
+g: 2.71%
+h: 5.76%
+i: 9.03%
+j: 0.00%
+k: 0.45%
+l: 5.08%
+m: 3.50%
+n: 7.00%
+o: 7.00%
+p: 2.82%
+q: 0.23%
+r: 6.32%
+s: 5.98%
+t: 8.58%
+u: 2.93%
+v: 1.47%
+w: 1.92%
+x: 0.00%
+y: 2.48%
+z: 0.23%
+
+Title: Peter Pan
+Author Full Name: James Barrie
+Author First Name: James
+Author Last Name: Barrie
+Word Count: 3051
+Line Count: 313
+
+Peter Pan Letter Frequency:
+a: 7.69%
+b: 1.42%
+c: 1.98%
+d: 4.83%
+e: 12.86%
+f: 1.95%
+g: 2.30%
+h: 7.20%
+i: 6.16%
+j: 0.18%
+k: 0.89%
+l: 3.77%
+m: 2.55%
+n: 7.53%
+o: 7.24%
+p: 1.57%
+q: 0.13%
+r: 5.70%
+s: 6.24%
+t: 8.52%
+u: 2.76%
+v: 1.00%
+w: 3.01%
+x: 0.16%
+y: 2.27%
+z: 0.09%
+
+Title: Moby Dick
+Author Full Name: Herman Melville
+Author First Name: Herman
+Author Last Name: Melville
+Word Count: 202
+Line Count: 17
+
+Moby Dick Letter Frequency:
+a: 6.43%
+b: 1.02%
+c: 2.03%
+d: 2.37%
+e: 12.19%
+f: 2.48%
+g: 2.71%
+h: 5.76%
+i: 9.03%
+j: 0.00%
+k: 0.45%
+l: 5.08%
+m: 3.50%
+n: 7.00%
+o: 7.00%
+p: 2.82%
+q: 0.23%
+r: 6.32%
+s: 5.98%
+t: 8.58%
+u: 2.93%
+v: 1.47%
+w: 1.92%
+x: 0.00%
+y: 2.48%
+z: 0.23%
+
