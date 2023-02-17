@@ -1,13 +1,12 @@
 #include <iostream>
 #include "Wheel.h"
 #include "Player.h"
+#include "Hard.h"
 
 
 int main() {
     int val;
     double mon;
-    bool keepPlaying = true;
-    bool moneyLeft = true;
 
     //prompt for values on the board
     std::cout << "How many values are on the board? (minimum 6, maximum 20): ";
@@ -22,14 +21,13 @@ int main() {
     std::cout << "\nHow much money do you have?: ";
     std::cin >> mon;
 
-    //create a player instance for the user
-    Player p1 = Player(val, mon);
+    
+    Player p1 = Player(val, mon);   //create a player instance for the user
+    Player House = Player(val);     //create a player instance for the house
 
-    //create a player instance for the house
-    Player House = Player(val);
 
     //if the player wants to keep playing and they still have money left, keep playing
-    while (keepPlaying && moneyLeft) {
+    while (!p1.end_game()) {
         int bet;
         int playerResult;
         int wagerChoice;
@@ -64,8 +62,8 @@ int main() {
         if (wagerChoice == 1) {
             //double the bet
             bet = bet * 2;
-            //if they bet is more than half of the players total money,
-            //change the bet to the value of the players money
+            //if the bet is more than half of the player's total money,
+            //change the bet to the value of the player's money
             if (bet > p1.get_money()) {
                 bet = p1.get_money();
             }
@@ -137,7 +135,7 @@ int main() {
         }
         //change the keepPlaying variable based off of the users choice
         if (continueChoice == 'N' || continueChoice == 'n') {
-            keepPlaying = false;
+            p1.keepPlaying = false;
         }
     };
 }
