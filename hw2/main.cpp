@@ -7,6 +7,9 @@
 int main() {
     int val;
     double mon;
+    char hard;
+
+    bool hardMode = false;
 
     //prompt for values on the board
     std::cout << "How many values are on the board? (minimum 6, maximum 20): ";
@@ -24,6 +27,15 @@ int main() {
     
     Player p1 = Player(val, mon);   //create a player instance for the user
     Player House = Player(val);     //create a player instance for the house
+
+
+    //ask if player would like to play in hard mode
+    std::cout << "\nWould you like to play in hard mode? (y/n): ";
+    std::cin >> hard;
+    Hard house(val);
+    if (hard == 'Y' || hard == 'y') {       // set to hard mode if yes
+        hardMode = true;
+    }
 
 
     //if the player wants to keep playing and they still have money left, keep playing
@@ -69,19 +81,27 @@ int main() {
             }
             
             //get the house's results
-            houseResult1 = House.spin();
-            houseResult2 = House.spin();
+            if (hardMode == false) {
+                houseResult1 = House.spin();                // if not hard mode
+                houseResult2 = House.spin();
+            }
+            else {
+                houseResult1 = house.spin(playerResult);    // if hard mode
+                houseResult2 = house.spin(playerResult);
+            }
 
             //check the houses results to the players results
             if (houseResult1 >= playerResult || houseResult2 >= playerResult) {
                 //player lost
                 std::cout << "\nYou lost. House Result: " << houseResult1 << " and " << houseResult2;
                 p1.set_money(p1.get_money() - bet);
+                house.win();
             }
             else {
                 //player won
                 std::cout << "\nYou won. House Results: " << houseResult1 << " and " << houseResult2;
                 p1.set_money(p1.get_money() + bet);
+                house.loss();
             }
         }
         //halve
@@ -90,35 +110,46 @@ int main() {
             bet = bet / 2;
 
             //get the house's results
-            houseResult1 = House.spin();
-            houseResult2 = House.spin();
+            if (hardMode == false) {
+                houseResult1 = House.spin();                // if not hard mode
+                houseResult2 = House.spin();
+            }
+            else {
+                houseResult1 = house.spin(playerResult);    // if hard mode
+                houseResult2 = house.spin(playerResult);
+            }
 
             //check the houses results to the players results
             if (houseResult1 >= playerResult && houseResult2 >= playerResult) {
                 //player lost
                 std::cout << "\nYou lost. House Result: " << houseResult1 << " and " << houseResult2;
                 p1.set_money(p1.get_money() - bet);
+                house.win();
             }
             else {
                 //player won
                 std::cout << "\nYou won. House Results: " << houseResult1 << " and " << houseResult2;
+                house.loss();
             }
         }
         //keep
         else {
             //get the house's result
-            houseResult1 = House.spin();
+            if (hardMode == false) { houseResult1 = House.spin(); }      // if not hard mode
+            else { houseResult1 = house.spin(playerResult); }           // if hard mode
 
             //check the houses result to the players result
             if (houseResult1 >= playerResult) {
                 //player lost
                 std::cout << "\nYou lost. House Result: " << houseResult1;
                 p1.set_money(p1.get_money() - bet);
+                house.win();
             }
             else {
                 //player won
                 std::cout << "\nYou won. House Result: " << houseResult1;
                 p1.set_money(p1.get_money() + bet);
+                house.loss();
             }
         }
 
