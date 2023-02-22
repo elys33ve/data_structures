@@ -9,7 +9,7 @@ int main() {
     double mon;
     char hard;
 
-    bool hardMode = false;
+    bool hardMode;
 
     //prompt for values on the board
     std::cout << "How many values are on the board? (minimum 6, maximum 20): ";
@@ -30,12 +30,13 @@ int main() {
 
 
     //ask if player would like to play in hard mode
-    std::cout << "\nWould you like to play in hard mode? (y/n): ";
+    std::cout << "\nWould you like to play in hard mode? (Y/N): ";
     std::cin >> hard;
     Hard house(val);
     if (hard == 'Y' || hard == 'y') {       // set to hard mode if yes
         hardMode = true;
     }
+    else { hardMode = false; }
 
 
     //if the player wants to keep playing and they still have money left, keep playing
@@ -136,7 +137,7 @@ int main() {
         else {
             //get the house's result
             if (hardMode == false) { houseResult1 = House.spin(); }      // if not hard mode
-            else { houseResult1 = house.spin(playerResult); }           // if hard mode
+            else { houseResult1 = house.spin(playerResult); }            // if hard mode
 
             //check the houses result to the players result
             if (houseResult1 >= playerResult) {
