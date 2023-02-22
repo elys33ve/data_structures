@@ -1,5 +1,4 @@
 #include <cstdlib>
-#include <iostream>
 #include "Wheel.h"
 #include "Player.h"
 #include "Hard.h"
